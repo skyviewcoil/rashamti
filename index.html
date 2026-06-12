@@ -93,7 +93,7 @@
 
   /* ============ Nav ============ */
   .nav {
-    background: var(--navy);
+    background: #131F36;
     padding: 0;
   }
   .nav .container {
@@ -166,38 +166,47 @@
   }
   .survey-link:hover { color: var(--navy); }
 
-  /* ============ Hero ============ */
+  /* ============ Hero (dark, live-demo) ============ */
   .hero {
     background:
-      radial-gradient(640px 420px at 88% -10%, rgba(31, 164, 99, 0.07), transparent 70%),
-      radial-gradient(560px 400px at 4% 108%, rgba(26, 43, 74, 0.06), transparent 70%),
-      var(--surface);
-    padding: 56px 0 0;
+      radial-gradient(580px 400px at 86% 6%, rgba(31, 164, 99, 0.16), transparent 65%),
+      radial-gradient(500px 380px at 6% 94%, rgba(245, 158, 11, 0.1), transparent 65%),
+      radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.4px),
+      linear-gradient(175deg, #131F36, #1A2B4A 58%, #20355A);
+    background-size: auto, auto, 26px 26px, auto;
+    padding: 56px 0 96px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%);
     overflow: hidden;
   }
   .hero .grid {
     display: grid;
-    gap: 40px;
+    gap: 44px;
     align-items: center;
   }
   .hero .copy { text-align: center; }
   .hero h1 {
+    color: #fff;
     font-size: clamp(36px, 9.4vw, 56px);
     margin-bottom: 16px;
   }
+  .hero .hl-o { background: linear-gradient(104deg, rgba(245,158,11,0) 0.6%, rgba(245,158,11,0.5) 3%, rgba(245,158,11,0.5) 97%, rgba(245,158,11,0) 99.4%); }
   .hero .sub {
     font-size: 19px;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.78);
     margin: 0 auto 30px;
     max-width: 32em;
   }
   .hero .cta-wrap { max-width: 420px; margin: 0 auto; }
+  .hero .cta-btn { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 14px 36px rgba(31, 164, 99, 0.4); }
+  .hero .cta-btn:focus-visible { outline-color: #fff; }
   .hero .scarcity {
     margin-top: 14px;
     font-size: 15px;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.66);
   }
-  .hero .scarcity strong { color: var(--orange-ink); font-weight: 700; }
+  .hero .scarcity strong { color: var(--orange); font-weight: 700; }
+  .hero .survey-link { color: rgba(255, 255, 255, 0.66); text-decoration-color: rgba(255, 255, 255, 0.3); }
+  .hero .survey-link:hover { color: #fff; }
 
   html.js .hero .copy > * { animation: rise 0.9s var(--ease) backwards; }
   html.js .hero .copy > *:nth-child(1) { animation-delay: 0.05s; }
@@ -208,14 +217,134 @@
     to { opacity: 1; transform: none; }
   }
 
-  .hero .visual {
-    position: relative;
-    isolation: isolate;
+  /* ============ Live demo (call -> lead card) ============ */
+  .demo {
+    max-width: 350px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    padding-top: 8px;
+    flex-direction: column;
+    gap: 0;
   }
-  .hero .phone-back { display: none; }
+  html.js .demo.play { animation: demoFade 9.5s linear infinite; }
+  @keyframes demoFade {
+    0%, 90% { opacity: 1; }
+    97%, 100% { opacity: 0; }
+  }
+  .call-chip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    padding: 14px 18px;
+    color: #fff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 36px rgba(0, 0, 0, 0.25);
+  }
+  html.js .demo.play .call-chip { animation: popIn 0.8s var(--ease) 0.15s backwards; }
+  .call-chip .ring {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .call-chip .ring svg { width: 20px; height: 20px; color: #fff; }
+  html.js .demo.play .ring { animation: ringPulse 1.6s ease-out infinite; }
+  @keyframes ringPulse {
+    0% { box-shadow: 0 0 0 0 rgba(31, 164, 99, 0.55); }
+    100% { box-shadow: 0 0 0 16px rgba(31, 164, 99, 0); }
+  }
+  .call-text { display: flex; flex-direction: column; line-height: 1.4; }
+  .call-text strong { font-size: 16px; }
+  .call-text span { font-size: 14px; color: rgba(255, 255, 255, 0.66); }
+  .waves {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    height: 26px;
+    margin-right: auto;
+  }
+  .waves i {
+    width: 4px;
+    border-radius: 2px;
+    background: var(--green);
+    height: 8px;
+  }
+  html.js .demo.play .waves i { animation: wave 1s ease-in-out infinite; }
+  .waves i:nth-child(1) { animation-delay: 0s; height: 10px; }
+  .waves i:nth-child(2) { animation-delay: 0.14s; height: 16px; }
+  .waves i:nth-child(3) { animation-delay: 0.28s; height: 22px; }
+  .waves i:nth-child(4) { animation-delay: 0.42s; height: 14px; }
+  .waves i:nth-child(5) { animation-delay: 0.56s; height: 9px; }
+  @keyframes wave {
+    0%, 100% { height: 6px; }
+    50% { height: 22px; }
+  }
+  .link-line {
+    width: 2px;
+    height: 22px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 9px);
+  }
+  html.js .demo.play .link-line { animation: popIn 0.5s var(--ease) 1.2s backwards; }
+  .lead-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px 20px 10px;
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.38);
+    text-align: right;
+  }
+  html.js .demo.play .lead-card { animation: cardIn 0.8s var(--ease) 1.5s backwards; }
+  .lc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+  }
+  .lc-head strong { font-size: 18px; font-weight: 900; color: var(--navy); }
+  .lc-badge {
+    background: rgba(245, 158, 11, 0.16);
+    color: var(--orange-ink);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+  .lc-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .lc-row .check { width: 22px; height: 22px; margin-top: 0; }
+  .lc-row .check svg { width: 11px; height: 11px; }
+  html.js .demo.play .lc-row:nth-of-type(1) { animation: rowIn 0.55s var(--ease) 2.2s backwards; }
+  html.js .demo.play .lc-row:nth-of-type(2) { animation: rowIn 0.55s var(--ease) 2.9s backwards; }
+  html.js .demo.play .lc-row:nth-of-type(3) { animation: rowIn 0.55s var(--ease) 3.6s backwards; }
+  html.js .demo.play .lc-row:nth-of-type(1) .check { animation: checkPop 0.45s var(--ease) 2.45s backwards; }
+  html.js .demo.play .lc-row:nth-of-type(2) .check { animation: checkPop 0.45s var(--ease) 3.15s backwards; }
+  html.js .demo.play .lc-row:nth-of-type(3) .check { animation: checkPop 0.45s var(--ease) 3.85s backwards; }
+  @keyframes popIn {
+    from { opacity: 0; transform: translateY(14px) scale(0.92); }
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(26px); }
+  }
+  @keyframes rowIn {
+    from { opacity: 0; transform: translateX(14px); }
+  }
+  @keyframes checkPop {
+    from { transform: scale(0); }
+  }
 
   /* ============ Phone frame (double bezel) ============ */
   .phone {
@@ -236,15 +365,10 @@
     border-radius: 30px;
   }
 
-  .hero .phone {
-    max-width: 270px;
-    margin-bottom: -70px;
-  }
-
   /* ============ Problem ============ */
   .problem {
     text-align: center;
-    padding-top: 130px;
+    padding-top: 84px;
   }
   .problem p { margin: 0 auto; color: var(--muted); max-width: 36em; }
 
@@ -591,31 +715,22 @@
 
     .cta-btn { width: auto; min-width: 330px; }
 
-    .hero { padding: 64px 0 0; }
+    .hero {
+      padding: 96px 0 130px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 52px), 0 100%);
+    }
     .hero .grid {
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 36px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
     }
     .hero .copy { text-align: right; }
     .hero .sub { margin: 0 0 32px; }
     .hero .cta-wrap { margin: 0; max-width: none; }
     .hero h1 { font-size: clamp(40px, 4vw, 52px); letter-spacing: -0.015em; }
 
-    .hero .visual { padding: 24px 0 0; justify-content: flex-start; }
-    .hero .phone { max-width: 286px; margin-bottom: -84px; }
-    .hero .phone-back {
-      display: block;
-      position: absolute;
-      max-width: 236px;
-      top: 96px;
-      right: 218px;
-      transform: rotate(-7deg);
-      opacity: 0.92;
-      z-index: -1;
-      margin-bottom: 0;
-    }
-
-    .problem { padding-top: 168px; }
+    .demo { max-width: 400px; width: 100%; margin: 0; justify-self: center; }
+    .lead-card { padding: 20px 24px 14px; }
+    .lc-row { font-size: 16.5px; }
 
     .screens .block {
       flex-direction: row;
@@ -694,12 +809,26 @@
           <a class="survey-link" href="https://SURVEY-LINK-PLACEHOLDER">עדיין מתלבט? ענה על 5 שאלות קצרות ←</a>
         </div>
       </div>
-      <div class="visual">
-        <div class="phone phone-back" aria-hidden="true">
-          <img src="screen-reminders.png" alt="" width="860" height="1864">
+      <div class="demo" aria-hidden="true">
+        <div class="call-chip">
+          <span class="ring">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </span>
+          <div class="call-text">
+            <strong>שיחה נכנסת</strong>
+            <span>דוד כהן · 050-123-4567</span>
+          </div>
+          <div class="waves"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
-        <div class="phone">
-          <img src="screen-leads.png" alt="מסך רשימת הלידים באפליקציית רשמתי" width="860" height="1864" fetchpriority="high">
+        <div class="link-line"></div>
+        <div class="lead-card">
+          <div class="lc-head">
+            <strong>דוד כהן</strong>
+            <span class="lc-badge">ליד חדש</span>
+          </div>
+          <div class="lc-row"><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>פרגולה אלומיניום לבנה · 4 מטר</div>
+          <div class="lc-row"><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>ביקש הצעת מחיר</div>
+          <div class="lc-row"><span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>לחזור ביום ראשון</div>
         </div>
       </div>
     </div>
@@ -965,6 +1094,17 @@
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // לופ הדמו בהירו: שיחה נכנסת -> כרטיס ליד
+  var demo = document.querySelector('.demo');
+  if (demo && !reduceMotion) {
+    demo.classList.add('play');
+    setInterval(function () {
+      demo.classList.remove('play');
+      void demo.offsetWidth;
+      demo.classList.add('play');
+    }, 9500);
   }
 
   // אקורדיון שאלות נפוצות
