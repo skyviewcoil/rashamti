@@ -60,9 +60,20 @@
     letter-spacing: -0.01em;
     text-wrap: balance;
   }
-  h2 { font-size: clamp(26px, 5.4vw, 38px); margin-bottom: 18px; }
+  h2 { font-size: clamp(28px, 6.4vw, 44px); margin-bottom: 18px; }
 
   p { max-width: 65ch; }
+
+  /* marker highlights */
+  .hl {
+    padding: 0.02em 0.14em;
+    margin: 0 -0.06em;
+    border-radius: 6px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .hl-o { background: linear-gradient(104deg, rgba(245,158,11,0) 0.6%, rgba(245,158,11,0.42) 3%, rgba(245,158,11,0.42) 97%, rgba(245,158,11,0) 99.4%); }
+  .hl-g { background: linear-gradient(104deg, rgba(31,164,99,0) 0.6%, rgba(31,164,99,0.32) 3%, rgba(31,164,99,0.32) 97%, rgba(31,164,99,0) 99.4%); }
 
   /* ============ Reveal-on-scroll (enhances visible default) ============ */
   html.js .reveal {
@@ -171,7 +182,7 @@
   }
   .hero .copy { text-align: center; }
   .hero h1 {
-    font-size: clamp(33px, 8vw, 52px);
+    font-size: clamp(36px, 9.4vw, 56px);
     margin-bottom: 16px;
   }
   .hero .sub {
@@ -306,9 +317,9 @@
   .steps .flow::before {
     content: "";
     position: absolute;
-    top: 14px;
-    bottom: 14px;
-    right: 25px;
+    top: 16px;
+    bottom: 16px;
+    right: 29px;
     width: 2px;
     background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
   }
@@ -322,14 +333,14 @@
     position: relative;
     z-index: 1;
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: var(--navy);
+    background: var(--green);
     color: #fff;
-    font-size: 21px;
+    font-size: 27px;
     font-weight: 900;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 14px rgba(26, 43, 74, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 18px rgba(31, 164, 99, 0.32);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -338,7 +349,7 @@
     font-weight: 700;
     color: var(--navy);
     font-size: 18px;
-    padding-top: 11px;
+    padding-top: 14px;
   }
 
   /* ============ Features (2-col grid) ============ */
@@ -381,15 +392,19 @@
   }
   .chip {
     background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    border: 1.5px solid rgba(245, 158, 11, 0.35);
     color: var(--orange-ink);
     font-size: 16px;
     font-weight: 700;
     padding: 8px 20px;
     border-radius: 999px;
+    transition: transform 0.4s var(--ease);
   }
+  .chip:nth-child(odd) { transform: rotate(-1.6deg); }
+  .chip:nth-child(even) { transform: rotate(1.4deg); }
+  .chip:hover { transform: rotate(0) scale(1.05); }
   .audience .punch {
-    font-size: clamp(20px, 4.6vw, 26px);
+    font-size: clamp(23px, 5.6vw, 32px);
     font-weight: 900;
     color: var(--navy);
     margin: 0 auto;
@@ -403,7 +418,8 @@
       var(--navy);
     color: #fff;
     text-align: center;
-    padding: 88px 0;
+    padding: 112px 0;
+    clip-path: polygon(0 26px, 100% 0, 100% calc(100% - 26px), 0 100%);
   }
   .pilot h2 { color: #fff; font-size: clamp(27px, 5.8vw, 40px); }
   .pilot .offer {
@@ -436,9 +452,21 @@
   }
   .pilot .counter strong {
     color: var(--orange);
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 900;
     line-height: 1;
+  }
+  .circled {
+    position: relative;
+    display: inline-block;
+    padding: 0 6px;
+  }
+  .circled svg {
+    position: absolute;
+    inset: -10px -10px -12px;
+    width: calc(100% + 20px);
+    height: calc(100% + 22px);
+    pointer-events: none;
   }
   .pilot .cta-wrap { max-width: 460px; margin: 0 auto; }
   .pilot .survey-link { color: rgba(255, 255, 255, 0.72); text-decoration-color: rgba(255, 255, 255, 0.35); }
@@ -473,7 +501,7 @@
     margin-bottom: 6px;
   }
   .price-card .price {
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 900;
     color: var(--navy);
     line-height: 1.1;
@@ -571,7 +599,7 @@
     .hero .copy { text-align: right; }
     .hero .sub { margin: 0 0 32px; }
     .hero .cta-wrap { margin: 0; max-width: none; }
-    .hero h1 { font-size: clamp(38px, 3.6vw, 46px); letter-spacing: -0.015em; }
+    .hero h1 { font-size: clamp(40px, 4vw, 52px); letter-spacing: -0.015em; }
 
     .hero .visual { padding: 24px 0 0; justify-content: flex-start; }
     .hero .phone { max-width: 286px; margin-bottom: -84px; }
@@ -599,7 +627,9 @@
     .screens .block .text { max-width: 380px; }
     .screens .block p { margin: 0; }
     .screens .phone { transition: transform 0.6s var(--ease); }
-    .screens .phone:hover { transform: translateY(-6px); }
+    .screens .block:nth-child(odd) .phone { transform: rotate(-2deg); }
+    .screens .block:nth-child(even) .phone { transform: rotate(2deg); }
+    .screens .phone:hover { transform: rotate(0) translateY(-6px); }
 
     .steps .flow {
       max-width: none;
@@ -635,7 +665,10 @@
 
     .pricing .cards { grid-template-columns: repeat(3, 1fr); }
 
-    .pilot { padding: 116px 0; }
+    .pilot {
+      padding: 148px 0;
+      clip-path: polygon(0 52px, 100% 0, 100% calc(100% - 52px), 0 100%);
+    }
   }
 </style>
 </head>
@@ -653,7 +686,7 @@
   <div class="container">
     <div class="grid">
       <div class="copy">
-        <h1>הטלפון שלך מלא בלידים. רשמתי דואגת שלא תשכח אף אחד.</h1>
+        <h1>הטלפון שלך <span class="hl hl-o">מלא בלידים</span>. רשמתי דואגת שלא תשכח אף אחד.</h1>
         <p class="sub">כל שיחה שנכנסת אליך נרשמת אוטומטית — מי התקשר, מה ביקש, ומתי לחזור אליו. בלי שתרשום מילה.</p>
         <div class="cta-wrap">
           <a class="cta-btn" href="https://PAYMENT-LINK-PLACEHOLDER">אני רוצה מקום בפיילוט<span class="arr" aria-hidden="true">&#8592;</span></a>
@@ -676,7 +709,7 @@
 <!-- 2. Problem -->
 <section class="problem">
   <div class="container reveal">
-    <h2>כמה עבודות הפסדת כי שכחת לחזור ללקוח?</h2>
+    <h2>כמה עבודות <span class="hl hl-o">הפסדת</span> כי שכחת לחזור ללקוח?</h2>
     <p>אתה על סולם, באמצע התקנה, בנסיעה. הטלפון מצלצל. אחד רוצה הצעת מחיר. אחד מבקש שתחזור ביום ראשון. אחד שואל על אחריות. בסוף היום הכל מתערבב — מי ביקש מה? למי לחזור? איזה מחיר אמרת? ככה לידים נופלים. ואתה אפילו לא יודע כמה.</p>
   </div>
 </section>
@@ -685,7 +718,7 @@
 <section class="solution">
   <div class="container">
     <div class="inner reveal">
-      <h2>רשמתי שומעת כל שיחה ורושמת בשבילך</h2>
+      <h2>רשמתי שומעת כל שיחה <span class="hl hl-g">ורושמת בשבילך</span></h2>
       <p class="lead">אחרי כל שיחה, רשמתי שולפת אוטומטית את מה שחשוב ומסדרת בטבלה אחת:</p>
       <ul class="check-list">
         <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>שם הלקוח ומספר הטלפון</li>
@@ -784,20 +817,20 @@
       <span class="chip">תקרות מתוחות</span>
       <span class="chip">מוסכים</span>
     </div>
-    <p class="punch">אם הטלפון שלך הוא העסק — זה בשבילך.</p>
+    <p class="punch">אם הטלפון שלך הוא העסק — <span class="hl hl-g">זה בשבילך.</span></p>
   </div>
 </section>
 
 <!-- 8. Pilot offer -->
 <section class="pilot" id="pilot">
   <div class="container reveal">
-    <h2>הצטרפות מוקדמת לפיילוט — 50 מקומות בלבד</h2>
+    <h2>הצטרפות מוקדמת לפיילוט — <span class="hl hl-o">50 מקומות בלבד</span></h2>
     <ul class="offer">
       <li>מחיר השקה: <strong>99₪ לחודש לחצי שנה</strong> (במקום 199₪)</li>
       <li>דמי הרשמה היום: <strong>49₪ בלבד</strong> — מתקזזים מהחודש הראשון</li>
       <li>אם הפיילוט לא נפתח עד 1.9.2026 — החזר מלא</li>
     </ul>
-    <div class="counter">נשארו <strong id="spots-count">43</strong> מקומות</div>
+    <div class="counter">נשארו <span class="circled"><svg viewBox="0 0 120 64" aria-hidden="true" preserveAspectRatio="none"><path d="M10,34 C11,14 48,5 76,8 C106,11 115,28 108,44 C100,58 32,60 15,48 C7,42 9,38 10,34" fill="none" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/></svg><strong id="spots-count">43</strong></span> מקומות</div>
     <div class="cta-wrap">
       <a class="cta-btn" href="https://PAYMENT-LINK-PLACEHOLDER">אני רוצה מקום בפיילוט — 49₪<span class="arr" aria-hidden="true">&#8592;</span></a>
       <a class="survey-link" href="https://SURVEY-LINK-PLACEHOLDER">עדיין מתלבט? ענה על 5 שאלות קצרות ←</a>
@@ -890,7 +923,7 @@
 <!-- 11. Final CTA -->
 <section class="final">
   <div class="container reveal">
-    <h2>לאבד ליד אחד עולה הרבה יותר מ-49₪.</h2>
+    <h2>לאבד ליד אחד עולה <span class="hl hl-o">הרבה יותר</span> מ-49₪.</h2>
     <div class="cta-wrap">
       <a class="cta-btn" href="https://PAYMENT-LINK-PLACEHOLDER">אני רוצה מקום בפיילוט<span class="arr" aria-hidden="true">&#8592;</span></a>
     </div>
