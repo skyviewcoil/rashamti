@@ -30,23 +30,38 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "האם המערכת כבר פעילה?",
-      "acceptedAnswer": { "@type": "Answer", "text": "רשמתי נמצאת לפני פיילוט ראשוני. ההרשמה נועדה לבחור את בעלי המקצוע הראשונים שישתתפו בבדיקה ויקבלו מחיר השקה." }
+      "name": "האם המערכת כבר זמינה?",
+      "acceptedAnswer": { "@type": "Answer", "text": "רשמתי נפתחת לקבוצה ראשונה של בעלי מקצוע בישראל, לפני הרחבת השירות. ההרשמה נועדה לשמור מקום במבצע 50 הראשונים ובמחיר מסובסד לשנה." }
+    },
+    {
+      "@type": "Question",
+      "name": "למה המחיר מסובסד?",
+      "acceptedAnswer": { "@type": "Answer", "text": "רשמתי נפתחת לקבוצה מוגבלת של בעלי מקצוע ראשונים במחיר מוזל לשנה, לפני הרחבת השירות לקהל רחב יותר." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם דמי הרישום מחייבים אותי למנוי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. דמי הרישום שומרים לך מקום במבצע 50 הראשונים ומתקזזים מהחודש הראשון. אין התחייבות חודשית, ואפשר לבטל בכל זמן." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה אם השירות לא ייפתח עבורי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "אם השירות לא ייפתח עבורך עד 1.9.2026 — דמי הרישום יוחזרו במלואם." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם צריך מספר חדש?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. רשמתי מיועדת לעבוד עם המספר הקיים שלך באנדרואיד, על שיחות נכנסות ויוצאות. התאמה סופית תיבדק לפי סוג המכשיר וגרסת המערכת." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם זה עובד על כל טלפון?",
+      "acceptedAnswer": { "@type": "Answer", "text": "המטרה היא לעבוד עם המספר הקיים באנדרואיד. בהרשמה נבדוק תאימות לפי סוג המכשיר וגרסת המערכת. אם המכשיר שלך לא יתאים — דמי הרישום יוחזרו במלואם." }
     },
     {
       "@type": "Question",
       "name": "צריך CRM?",
       "acceptedAnswer": { "@type": "Answer", "text": "לא. רשמתי נבנתה לעצמאי שלא רוצה מערכת מסובכת." }
-    },
-    {
-      "@type": "Question",
-      "name": "צריך מספר חדש?",
-      "acceptedAnswer": { "@type": "Answer", "text": "לא. עובד על המספר הקיים שלך (אנדרואיד), על שיחות נכנסות ויוצאות. תמיכה באייפון תתווסף בהמשך." }
-    },
-    {
-      "@type": "Question",
-      "name": "האם זה עובד על כל טלפון?",
-      "acceptedAnswer": { "@type": "Answer", "text": "המטרה היא לעבוד עם המספר הקיים באנדרואיד. בפיילוט נבדוק תאימות לפי סוג המכשיר וגרסת המערכת. אם המכשיר שלך לא יתאים — דמי ההרשמה יוחזרו במלואם." }
     },
     {
       "@type": "Question",
@@ -56,12 +71,7 @@
     {
       "@type": "Question",
       "name": "למי זה פחות מתאים?",
-      "acceptedAnswer": { "@type": "Answer", "text": "רשמתי פחות מתאימה לעסק שכבר עובד עם מוקד מכירות, CRM מלא או מרכזייה מתקדמת. הפיילוט מיועד בעיקר לעצמאים ובעלי מקצוע שמנהלים לידים מהטלפון ומהראש." }
-    },
-    {
-      "@type": "Question",
-      "name": "מה אם הפיילוט לא ייפתח?",
-      "acceptedAnswer": { "@type": "Answer", "text": "דמי ההרשמה יוחזרו במלואם עד 1.9.2026. אין התחייבות חודשית — ניתן לבטל בכל זמן." }
+      "acceptedAnswer": { "@type": "Answer", "text": "רשמתי פחות מתאימה לעסק שכבר עובד עם מוקד מכירות, CRM מלא או מרכזייה מתקדמת. השירות מיועד בעיקר לעצמאים ובעלי מקצוע שמנהלים לידים מהטלפון ומהראש." }
     }
   ]
 }
@@ -156,6 +166,22 @@
     letter-spacing: -0.02em;
   }
   .nav .logo span { color: var(--orange); }
+  .nav-phone {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: none;
+  }
+  .nav-phone a {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-phone a:hover { color: #fff; }
+  @media (max-width: 560px) {
+    .nav-phone { font-size: 13px; }
+    .nav-phone .nav-phone-label { display: none; }
+  }
 
   /* ============ Buttons ============ */
   .cta-btn {
@@ -634,6 +660,19 @@
     font-size: 14px;
     color: rgba(255, 255, 255, 0.55);
   }
+  .pilot .contact-line {
+    margin: 16px auto 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 40em;
+  }
+  .pilot .contact-line a {
+    color: var(--orange);
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .pilot .contact-line a:hover { text-decoration: underline; }
   .pilot .cta-wrap { max-width: 460px; margin: 0 auto; }
   .pilot .survey-link { color: rgba(255, 255, 255, 0.72); text-decoration-color: rgba(255, 255, 255, 0.35); }
   .pilot .survey-link:hover { color: #fff; }
@@ -749,9 +788,13 @@
     background: var(--navy);
     color: rgba(255, 255, 255, 0.72);
     text-align: center;
-    padding: 30px 20px;
+    padding: 34px 20px;
     font-size: 15px;
   }
+  footer p { max-width: none; margin: 0 auto; }
+  footer p + p { margin-top: 6px; }
+  footer .foot-brand { font-weight: 800; color: #fff; font-size: 17px; margin-bottom: 4px; }
+  footer .foot-legal { margin-top: 14px; font-size: 13px; color: rgba(255, 255, 255, 0.5); }
   footer a {
     color: rgba(255, 255, 255, 0.92);
     text-decoration: underline;
@@ -844,6 +887,7 @@
 <header class="nav">
   <div class="container">
     <div class="logo">רשמתי<span>.</span></div>
+    <p class="nav-phone"><span class="nav-phone-label">שאלות? שיחה / WhatsApp: </span><a href="tel:0585960615">058-59-60-615</a></p>
   </div>
 </header>
 
@@ -855,9 +899,9 @@
         <h1>הטלפון שלך <span class="accent">מלא בלידים</span>. רשמתי דואגת שלא תשכח אף אחד.</h1>
         <p class="sub">כל שיחה שלך — נכנסת או יוצאת — נרשמת אוטומטית: מי הלקוח, מה ביקש, ומתי לחזור אליו. בלי שתרשום מילה.</p>
         <div class="cta-wrap">
-          <a class="cta-btn" href="#" data-link="payment">אני רוצה מקום ברשמתי<span class="arr" aria-hidden="true">&#8592;</span></a>
-          <p class="scarcity"><strong>50 מקומות בלבד</strong> · מחיר השקה לנרשמים הראשונים</p>
-          <a class="survey-link" href="#" data-link="survey">עדיין מתלבט? ענה על 5 שאלות קצרות ←</a>
+          <a class="cta-btn" href="#" data-link="payment">שמור לי מקום ב־49 ₪<span class="arr" aria-hidden="true">&#8592;</span></a>
+          <p class="scarcity"><strong>50 מקומות בלבד</strong> · מחיר מסובסד לשנה לנרשמים הראשונים</p>
+          <a class="survey-link" href="#" data-link="survey">עדיין מתלבט? מלא שאלון קצר ←</a>
         </div>
       </div>
       <div class="demo" aria-hidden="true">
@@ -1002,34 +1046,37 @@
   </div>
 </section>
 
-<!-- 8. Pilot offer -->
+<!-- 8. Registration offer -->
 <section class="pilot" id="pilot">
   <div class="container reveal">
-    <h2>הצטרפות מוקדמת — 50 מקומות בלבד</h2>
+    <h2>מבצע רישום ל־50 בעלי המקצוע הראשונים</h2>
     <ul class="offer">
-      <li>מחיר השקה: <strong>99₪ לחודש לחצי שנה</strong> (במקום 199₪)</li>
-      <li>דמי הרשמה היום: <strong>49₪ בלבד</strong> — מתקזזים מהחודש הראשון</li>
-      <li>עובד על שיחות נכנסות ויוצאות — על המספר הקיים שלך</li>
+      <li>מחיר מסובסד: <strong>99 ₪ לחודש למשך שנה</strong> (במקום 199 ₪)</li>
+      <li>דמי רישום חד־פעמיים: <strong>49 ₪ בלבד</strong> — מתקזזים מהחודש הראשון</li>
+      <li>אין התחייבות חודשית — אפשר לבטל בכל זמן</li>
+      <li>אם השירות לא ייפתח עבורך עד 1.9.2026 — דמי הרישום יוחזרו במלואם</li>
     </ul>
-    <div class="counter">הפיילוט מוגבל ל־<strong>50</strong> בעלי מקצוע בלבד.</div>
+    <div class="counter">המבצע מוגבל ל־<strong>50</strong> בעלי מקצוע בלבד.</div>
     <div class="cta-wrap">
-      <a class="cta-btn" href="#" data-link="payment">אני רוצה מקום ברשמתי — 49₪<span class="arr" aria-hidden="true">&#8592;</span></a>
-      <p class="compat">בפיילוט תיבדק תאימות לפי סוג מכשיר אנדרואיד.</p>
-      <a class="survey-link" href="#" data-link="survey">עדיין מתלבט? ענה על 5 שאלות קצרות ←</a>
+      <a class="cta-btn" href="#" data-link="payment">שמור לי מקום ב־49 ₪<span class="arr" aria-hidden="true">&#8592;</span></a>
+      <p class="compat">בהרשמה תיבדק תאימות לפי סוג מכשיר אנדרואיד.</p>
+      <p class="contact-line">מתלבט אם זה מתאים לעסק שלך? אפשר להתקשר או לשלוח WhatsApp: <a href="tel:0585960615">058-59-60-615</a></p>
+      <a class="survey-link" href="#" data-link="survey">עדיין מתלבט? מלא שאלון קצר ←</a>
     </div>
   </div>
 </section>
 
-<!-- 8b. What the pilot includes -->
+<!-- 8b. What the registration includes -->
 <section class="pilot-includes">
   <div class="container reveal">
-    <h2>מה תקבל בפיילוט?</h2>
+    <h2>מה תקבל בהרשמה?</h2>
     <ul class="check-list">
       <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>התקנת האפליקציה באנדרואיד</li>
       <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>בדיקת הקלטת שיחות במכשיר שלך</li>
       <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>כרטיס ליד אוטומטי לכל שיחה</li>
       <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>סיכומי שיחות ותזכורות</li>
-      <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>אפשרות להשפיע על הפיתוח לפני ההשקה הרחבה</li>
+      <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>מחיר מסובסד לשנה</li>
+      <li><span class="check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>מקום בקבוצת בעלי המקצוע הראשונים לפני הרחבת השירות</li>
     </ul>
   </div>
 </section>
@@ -1052,7 +1099,7 @@
         <p class="price">399₪ <small>/ חודש</small></p>
       </div>
     </div>
-    <p class="lock">מי שמצטרף עכשיו נועל את מחיר ההשקה.</p>
+    <p class="lock">50 הנרשמים הראשונים נועלים מחיר מסובסד לשנה.</p>
   </div>
 </section>
 
@@ -1064,11 +1111,61 @@
 
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="false">
-          האם המערכת כבר פעילה?
+          האם המערכת כבר זמינה?
           <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
         </button>
         <div class="faq-a">
-          <p>רשמתי נמצאת לפני פיילוט ראשוני. ההרשמה נועדה לבחור את בעלי המקצוע הראשונים שישתתפו בבדיקה ויקבלו מחיר השקה.</p>
+          <p>רשמתי נפתחת לקבוצה ראשונה של בעלי מקצוע בישראל, לפני הרחבת השירות. ההרשמה נועדה לשמור מקום במבצע 50 הראשונים ובמחיר מסובסד לשנה.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          למה המחיר מסובסד?
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>רשמתי נפתחת לקבוצה מוגבלת של בעלי מקצוע ראשונים במחיר מוזל לשנה, לפני הרחבת השירות לקהל רחב יותר.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          האם דמי הרישום מחייבים אותי למנוי?
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>לא. דמי הרישום שומרים לך מקום במבצע 50 הראשונים ומתקזזים מהחודש הראשון. אין התחייבות חודשית, ואפשר לבטל בכל זמן.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          מה אם השירות לא ייפתח עבורי?
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>אם השירות לא ייפתח עבורך עד 1.9.2026 — דמי הרישום יוחזרו במלואם.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          האם צריך מספר חדש?
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>לא. רשמתי מיועדת לעבוד עם המספר הקיים שלך באנדרואיד, על שיחות נכנסות ויוצאות. התאמה סופית תיבדק לפי סוג המכשיר וגרסת המערכת.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          האם זה עובד על כל טלפון?
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>המטרה היא לעבוד עם המספר הקיים באנדרואיד. בהרשמה נבדוק תאימות לפי סוג המכשיר וגרסת המערכת. אם המכשיר שלך לא יתאים — דמי הרישום יוחזרו במלואם.</p>
         </div>
       </div>
 
@@ -1079,26 +1176,6 @@
         </button>
         <div class="faq-a">
           <p>לא. רשמתי נבנתה לעצמאי שלא רוצה מערכת מסובכת.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          צריך מספר חדש?
-          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
-        </button>
-        <div class="faq-a">
-          <p>לא. עובד על המספר הקיים שלך (אנדרואיד), על שיחות נכנסות ויוצאות. תמיכה באייפון תתווסף בהמשך.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          האם זה עובד על כל טלפון?
-          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
-        </button>
-        <div class="faq-a">
-          <p>המטרה היא לעבוד עם המספר הקיים באנדרואיד. בפיילוט נבדוק תאימות לפי סוג המכשיר וגרסת המערכת. אם המכשיר שלך לא יתאים — דמי ההרשמה יוחזרו במלואם.</p>
         </div>
       </div>
 
@@ -1118,17 +1195,7 @@
           <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
         </button>
         <div class="faq-a">
-          <p>רשמתי פחות מתאימה לעסק שכבר עובד עם מוקד מכירות, CRM מלא או מרכזייה מתקדמת. הפיילוט מיועד בעיקר לעצמאים ובעלי מקצוע שמנהלים לידים מהטלפון ומהראש.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          מה אם הפיילוט לא ייפתח?
-          <span class="plus" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
-        </button>
-        <div class="faq-a">
-          <p>דמי ההרשמה יוחזרו במלואם עד 1.9.2026. אין התחייבות חודשית — ניתן לבטל בכל זמן.</p>
+          <p>רשמתי פחות מתאימה לעסק שכבר עובד עם מוקד מכירות, CRM מלא או מרכזייה מתקדמת. השירות מיועד בעיקר לעצמאים ובעלי מקצוע שמנהלים לידים מהטלפון ומהראש.</p>
         </div>
       </div>
 
@@ -1139,16 +1206,19 @@
 <!-- 11. Final CTA -->
 <section class="final">
   <div class="container reveal">
-    <h2>לאבד ליד אחד עולה הרבה יותר מ-49₪.</h2>
+    <h2>לאבד ליד אחד עולה הרבה יותר מ-49 ₪.</h2>
     <div class="cta-wrap">
-      <a class="cta-btn" href="#" data-link="payment">אני רוצה מקום ברשמתי<span class="arr" aria-hidden="true">&#8592;</span></a>
+      <a class="cta-btn" href="#" data-link="payment">שמור לי מקום ב־49 ₪<span class="arr" aria-hidden="true">&#8592;</span></a>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>רשמתי © 2026 · יצירת קשר: <a href="mailto:info@rashamti.com">info@rashamti.com</a> · <a href="#">מדיניות פרטיות</a></p>
+  <p class="foot-brand">רשמתי · Rashamti.com</p>
+  <p>שיחה / WhatsApp: <a href="tel:0585960615">058-59-60-615</a> · <a href="https://wa.me/972585960615" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p>מייל: <a href="mailto:info@rashamti.com">info@rashamti.com</a></p>
+  <p class="foot-legal">רשמתי © 2026 · <a href="#">מדיניות פרטיות</a></p>
 </footer>
 
 <script>
