@@ -1224,14 +1224,18 @@
 <script>
   // ====== קונפיגורציה — החלף כאן ללינקים האמיתיים ======
   var PAYMENT_LINK = "REPLACE_WITH_PAYMENT_LINK";
-  var SURVEY_LINK = "REPLACE_WITH_SURVEY_LINK";
+  var SURVEY_LINK = "https://forms.gle/yDw2UfnAvTn1DShh7";
   // =====================================================
 
   document.documentElement.classList.add('js');
 
   // כל כפתורי התשלום והשאלון מקבלים את הלינק מהקבועים למעלה
   document.querySelectorAll('[data-link="payment"]').forEach(function (a) { a.href = PAYMENT_LINK; });
-  document.querySelectorAll('[data-link="survey"]').forEach(function (a) { a.href = SURVEY_LINK; });
+  document.querySelectorAll('[data-link="survey"]').forEach(function (a) {
+    a.href = SURVEY_LINK;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
 
   // אירוע Lead לפיקסל של מטא על קליק CTA
   document.querySelectorAll('.cta-btn').forEach(function (btn) {
